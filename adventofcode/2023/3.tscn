@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://dhbrf2samxwsa"]
+
+[node name="3" type="Node2D"]
+script = null
