@@ -1,22 +1,5 @@
 extends Node2D
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	_advent_of_code_1()
-	pass # Replace with function body.
-
-# Get file content lines
-func _get_adventofcode_file_content(day):
-	var file = FileAccess.open(str("res://adventofcode/2023/", day, ".txt"), FileAccess.READ)
-	
-	var lines = []
-	
-	while not file.eof_reached(): 
-		lines.append(file.get_line())
-		
-	return lines
-	
 var txtNumbersMapped = {
 	"one": "1",
 	"two": "2",
@@ -48,9 +31,9 @@ func transformTxtNumberToNumber(line: String, isRecursion = false):
 			line = line.erase(pos, 1).insert(pos, txtNumbersMapped[numbersFound[pos]])
 			
 	return line
-	
-func _advent_of_code_1():
-	var txtLines = _get_adventofcode_file_content(1)
+
+func _ready():
+	var txtLines = GlobalScript.get_adventofcode_file_content(2023, 1)
 	var numbersSum = 0
 
 	for line in txtLines:
@@ -59,4 +42,3 @@ func _advent_of_code_1():
 		numbersSum += int(strNumbers[0] + strNumbers[-1])
 		
 	print(numbersSum) # 55651
-

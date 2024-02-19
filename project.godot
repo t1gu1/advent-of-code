@@ -11,9 +11,12 @@ config_version=5
 [application]
 
 config/name="advent-of-code"
-run/main_scene="res://main.tscn"
+run/main_scene="res://adventofcode/2023/1.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+
+[autoload]
+
+GlobalScript="*res://adventofcode/GlobalScript.gd"
 
 [rendering]
 
