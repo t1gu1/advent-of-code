@@ -12,7 +12,7 @@ var txtNumbersMapped = {
 	"nine": "9"
 }
 
-# All the "complexe" txt to number logic is in transformTxtNumberToNumber
+# Part 2 logic
 func transformTxtNumberToNumber(line: String, isRecursion = false):
 	var numbersFound = {} # "onetwo" -> [{0: "one", 3: "two"}]
 
@@ -21,19 +21,17 @@ func transformTxtNumberToNumber(line: String, isRecursion = false):
 		var pos = line.find(txt)
 		if(pos != -1): 
 			numbersFound[pos] = txt
-		
-	# Hardcoded check for a second same number in the string like "onethreeone"
-	# Huge risk but.. I don't care for that code test event
+
+	# Check for a second same number in the string like "onethreeone"
 	for txtpos in numbersFound:
 		var pos = line.find(numbersFound[txtpos], txtpos + 1)
 		if(pos != -1): 
 			numbersFound[pos] = numbersFound[txtpos]
 	
-	# Hardcoded loop to loop on each caracter of the word
-	# Could make a loop to get the longest word.. too lazy lol
-	for pos in range(0, 60):
+	# Loop on each caracters of the line
+	for pos in len(line):
 		if(numbersFound.has(pos)):
-			# lol simply replace the first caracter
+			# lol simply replace the first caracter of the text number by the number
 			line = line.erase(pos, 1).insert(pos, txtNumbersMapped[numbersFound[pos]])
 			
 	return line
@@ -43,13 +41,11 @@ func _ready():
 	var numbersSum = 0
 
 	for line in txtLines:
-		
 		# The int clear all letters lol #nice
-		var numbers = int(transformTxtNumberToNumber(line))
-		# var numbers = int(line) # For the PART1 (And comment the previous line)
+		var numbers = int(transformTxtNumberToNumber(line)) # For the PART1: var numbers = int(line) 
 		
-		# Sum the first and the last int found in the string
+		# Concat the first and the last int and sum it
 		var strNumbers = str(numbers)
 		numbersSum += int(strNumbers[0] + strNumbers[-1])
 		
-	print(numbersSum) # Result: 55651
+	print(numbersSum) # Result: 55652
