@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dhbrf2samxwsa"]
+[gd_scene load_steps=2 format=3 uid="uid://bvlt2or5vrkad"]
+
+[ext_resource type="Script" path="res://adventofcode/2023/3.gd" id="1_fojmc"]
 
 [node name="3" type="Node2D"]
-script = null
+script = ExtResource("1_fojmc")
