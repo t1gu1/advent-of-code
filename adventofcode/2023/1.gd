@@ -43,8 +43,10 @@ func _ready():
 	var numbersSum = 0
 
 	for line in txtLines:
+		
 		# The int clear all letters lol #nice
 		var numbers = int(transformTxtNumberToNumber(line))
+		# var numbers = int(line) # For the PART1 (And comment the previous line)
 		
 		# Sum the first and the last int found in the string
 		var strNumbers = str(numbers)
