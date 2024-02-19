@@ -16,8 +16,8 @@ func _ready():
 		_part1(id, splitedToArray)
 		_part2(splitedToArray)
 		
-	print("Sum of valid IDS: ", sumIds) # Part1: 2164
-	print("Sum of POWER: ", sumPower) # Part2: xxxxx
+	print("Part 1 - Sum of valid IDS: ", sumIds) # Response: 2164
+	print("Part 2 - Sum of POWER: ", sumPower) # Response: 69929
 
 func _part1(id, splitedToArray):
 	var isValid = true
